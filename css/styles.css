@@ -1,0 +1,931 @@
+/* CSS Variables for Dynamic Color Palette */
+
+:root {
+  --primary-color: #0077b6;
+  --secondary-color: #90e0ef;
+  --background-color: #f9f9f9;
+  --section-background: #ffffff;
+  --text-color: #333333;
+  --accent-color: #e0f7fa;
+  --heading-font: 'Montserrat', sans-serif;
+  --body-font: 'Lato', sans-serif;
+}
+
+
+/* ========================================================== */
+/*                      Global Styles                         */
+/* ========================================================== */
+/* Global styles remain the same */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--body-font);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  scroll-behavior: smooth;
+  line-height: 1.6;
+}
+
+body.spa-active {
+  opacity: 0.3;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+}
+
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--heading-font);
+  color: var(--primary-color);
+  margin-bottom: 0.5em;
+}
+
+h2 {
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.3em;
+  display: inline-block;
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-color);
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: var(--secondary-color);
+}
+
+
+/* ========================================================== */
+/*           Toggle Button and Color Switcher Styles          */
+/* ========================================================== */
+/* Toggle Button and Color Switcher Styles remain the same */
+
+.toggle-container {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+}
+
+
+.toggle-button,
+.palette-button {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.8em;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  margin-left: 8px;
+}
+
+
+.toggle-button:hover,
+.palette-button:hover {
+  opacity: 1;
+}
+
+
+
+/* Color Switcher Styles - Modified for Toggle */
+
+#colorSwitcher {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: var(--section-background);
+  border: 1px solid var(--primary-color);
+  border-radius: 8px;
+  padding: 12px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  z-index: 999;
+  font-size: 0.85em;
+  margin-top: 3px;
+}
+
+
+#colorSwitcher.active {
+  display: block;
+}
+
+
+#colorSwitcher label {
+  font-size: 0.75em;
+  color: var(--text-color);
+  display: block;
+  margin-bottom: 2px;
+}
+
+#colorSwitcher input {
+  margin-bottom: 8px;
+  width: 70px;
+  height: 22px;
+  padding: 0;
+  border: none;
+  border-radius: 4px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+}
+
+#colorSwitcher input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+#colorSwitcher input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 3px;
+}
+
+#colorSwitcher input[type="color"]::-moz-color-swatch-wrapper {
+  padding: 0;
+}
+
+#colorSwitcher input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 3px;
+}
+
+
+/* ========================================================== */
+/*            Scroll to Top/Bottom Arrow Styles               */
+/* ========================================================== */
+/* Scroll to Top/Bottom Arrow Styles remain the same */
+
+.scroll-arrow-container {
+  position: fixed;
+  top: 50%;
+  right: 15px;
+  transform: translateY(-50%);
+  z-index: 998;
+}
+
+
+.scroll-arrow {
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  font-size: 1.8em;
+  cursor: pointer;
+  opacity: 0.7;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+
+.scroll-arrow:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+
+/* ========================================================== */
+/*                         SPA Styles                         */
+/* ========================================================== */
+/* SPA Styles remain the same */
+
+#spa-view {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--background-color);
+  z-index: 999;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: var(--primary-color);
+}
+
+
+#spa-view.active {
+  display: flex;
+}
+
+
+.spa-icon {
+  font-size: 4em;
+  margin-bottom: 15px;
+  color: var(--primary-color);
+}
+
+
+.spa-links-container {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.spa-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+
+.spa-circle {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 2px solid var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 8px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+
+.spa-circle:hover {
+  background-color: var(--primary-color);
+  color: var(--section-background);
+  transform: scale(1.1);
+}
+
+
+.spa-link-icon {
+  font-size: 1.8em;
+}
+
+
+/* ========================================================== */
+/*                     Landing Section Styles                 */
+/* ========================================================== */
+/* Landing Section Styles remain the same */
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  min-height: 90vh;
+  padding: 20px;
+  background: linear-gradient(135deg, var(--primary-color) 40%, var(--secondary-color) 100%);
+  color: white;
+  text-align: center;
+}
+
+.profile-image {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid white;
+  margin-bottom: 0.8em;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-size: cover;
+  background-position: center;
+}
+
+
+.landing h1 {
+  color: white;
+  margin-bottom: 0.4em;
+  font-size: 2.2em;
+}
+
+.landing p {
+  font-size: 1em;
+  max-width: 700px;
+  margin-bottom: 1.2em;
+  line-height: 1.7;
+}
+
+
+/* ========================================================== */
+/*                     Summary Section Styles                 */
+/* ========================================================== */
+/* Summary Section Styles remain the same */
+
+.summary-section {
+  display: flex;
+  padding: 15px;
+  width: 95%;
+  max-width: 1200px;
+  margin: 15px auto;
+  background-color: var(--section-background);
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  align-items: flex-start;
+  text-align: left;
+}
+
+
+.summary-section .profile-image {
+  width: 130px;
+  height: 130px;
+  margin: 0 15px 0 0;
+  border-width: 3px;
+}
+
+
+.summary-section .summary-text {
+  flex: 1;
+  color: var(--text-color);
+}
+
+
+.summary-section .summary-text h2 {
+  color: var(--primary-color);
+  border-bottom: none;
+  padding-bottom: 0;
+  margin-bottom: 0.4em;
+}
+
+
+.summary-section .summary-text ul {
+  list-style: disc;
+  padding-left: 20px;
+}
+
+
+.summary-section .summary-text li {
+  margin-bottom: 0.4em;
+  font-size: 0.95em;
+  line-height: 1.5;
+}
+
+
+/* ========================================================== */
+/*                  Icon Navigation Styles                    */
+/* ========================================================== */
+/* Icon Navigation Styles remain the same */
+
+.icon-nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 25px;
+  margin-top: 1.5em;
+}
+
+.icon-nav a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.icon-nav a:hover {
+  transform: scale(1.1);
+}
+
+.nav-icon {
+  font-size: 2.2em;
+  color: var(--section-background);
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-text {
+  display: block;
+  margin-top: 0.4em;
+  font-size: 0.85em;
+  color: var(--section-background);
+}
+
+
+/* ========================================================== */
+/*                   Common Section Styles                    */
+/* ========================================================== */
+/* Common Section Styles remain the same */
+
+.section {
+  padding: 40px 20px;
+  background-color: var(--section-background);
+  margin: 20px auto;
+  width: 95%;
+  max-width: 1200px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+  font-size: 2em;
+  margin-bottom: 0.6em;
+  padding-bottom: 0.4em;
+}
+
+
+/* ========================================================== */
+/*                     Timeline Styles                        */
+/* ========================================================== */
+/* Timeline Styles - Adjusted for Mobile Responsiveness while maintaining structure */
+
+.timeline {
+  position: relative;
+  margin: 40px 0;
+  padding: 25px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--primary-color);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 48%; /* Default width for larger screens */
+  padding: 20px 25px;
+  background: var(--accent-color);
+  border-radius: 8px;
+  box-shadow: 0 3px 7px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.timeline-item:nth-child(odd) {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item:nth-child(even) {
+  left: 52%;
+  text-align: left;
+}
+
+.timeline-item::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  width: 20px;
+  height: 20px;
+  background: white;
+  border: 4px solid var(--primary-color);
+  border-radius: 50%;
+  z-index: 1;
+}
+
+.timeline-item:nth-child(odd)::before {
+  right: -10px;
+}
+
+.timeline-item:nth-child(even)::before {
+  left: -10px;
+}
+
+.timeline-item h3 {
+  font-size: 1.3em;
+  margin-bottom: 0.4em;
+}
+
+.timeline-item p {
+  font-size: 0.95em;
+  color: var(--text-color);
+  margin: 0.3em 0;
+}
+
+
+/* ========================================================== */
+/*       Education and Volunteering Timeline Items           */
+/* ========================================================== */
+/* Education and Volunteering Timeline Items remain the same */
+
+.education-item p,
+.volunteering-item p {
+  font-size: 0.9em;
+  margin: 0.2em 0;
+}
+
+
+/* ========================================================== */
+/*                 Work Experience Section Styles             */
+/* ========================================================== */
+/* Work Experience Section Styles remain the same */
+
+.work-item {
+  margin-bottom: 40px;
+}
+
+.work-item .work-item-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
+.work-item .company-logo {
+  flex-shrink: 0;
+  width: 80px;
+  height: 80px;
+}
+
+.work-item .company-logo img {
+  max-width: 100%;
+  max-height: 100%;
+  display: block;
+  border-radius: 8px;
+  object-fit: contain;
+}
+
+.work-item .work-details {
+  flex-grow: 1;
+  text-align: left;
+}
+
+.work-item .work-details h3 {
+  font-size: 1.4em;
+  margin-top: 0;
+  margin-bottom: 0.3em;
+}
+
+.work-item .location,
+.work-item .dates,
+.work-item .role {
+  margin: 0.2em 0;
+  font-size: 0.95em;
+  color: #666;
+}
+
+.work-item .responsibilities {
+  margin: 8px 0 8px 20px;
+  list-style-type: disc;
+}
+
+.visit-website {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 7px 12px;
+  background-color: var(--primary-color);
+  color: #fff;
+  border-radius: 4px;
+  text-decoration: none;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.visit-website:hover {
+  background-color: var(--secondary-color);
+}
+
+
+/* ========================================================== */
+/*               Skills Section - Domain Categories           */
+/* ========================================================== */
+/* Skills Section - Domain Categories remain the same */
+
+.skills-category {
+  margin-bottom: 20px;
+}
+
+.skills-category h3 {
+  font-size: 1.3em;
+  color: var(--primary-color);
+  margin-bottom: 10px;
+}
+
+.skills-category ul {
+  list-style: disc;
+  margin-left: 20px;
+}
+
+.skills-category li {
+  margin-bottom: 5px;
+  font-size: 0.95em;
+}
+
+
+/* ========================================================== */
+/*                     Responsive Adjustments                 */
+/* ========================================================== */
+/* Media query for screens smaller than 768px (typical mobiles) - Timeline adjustments are key here */
+
+@media (max-width: 768px) {
+  .timeline {
+      padding: 20px 0; /* Adjust padding for mobile timeline */
+      margin: 20px 0;
+  }
+
+  .timeline::before {
+      left: 20px; /* Adjust timeline line position on mobile */
+      transform: translateX(0); /* Reset translateX for mobile timeline line */
+  }
+
+  .timeline-item {
+      width: 90%; /* Make timeline items take more width on smaller screens */
+      max-width: 90%; /* Limit maximum width for timeline items on mobile */
+      padding: 15px; /* Adjust padding for mobile timeline items */
+      padding-left: 35px;
+      margin-left: 0; /* Reset left margin */
+      margin-right: 0; /* Reset right margin */
+      margin-bottom: 20px; /* Increase margin between items for vertical spacing */
+      display: block; /* Ensure items are displayed as block */
+      clear: both; /* Prevent floating and ensure stacking */
+      position: relative;
+    }
+
+  .timeline-item:nth-child(odd) {
+      left: auto; /* Reset left positioning */
+      text-align: left; /* Align text to the left for all items on mobile */
+  }
+
+  .timeline-item:nth-child(even) {
+      left: auto; /* Reset left positioning */
+      text-align: left; /* Keep text alignment consistent */
+  }
+
+  .timeline-item::before {
+      top: 15px; /* Adjust bullet vertical position for mobile */
+      left: 8px; /* Position bullets to the left of content for mobile */
+      right: auto; /* Reset right positioning if it was set */
+      left: 0px;
+  }
+
+
+  .timeline-item h3 {
+      font-size: 1.2em; /* Adjust font size for mobile timeline headings */
+  }
+
+  .timeline-item p {
+      font-size: 0.9em; /* Adjust font size for mobile timeline paragraphs */
+  }
+
+
+  /* Other Responsive Adjustments (non-timeline) - remain mostly the same, adjust if needed */
+
+  body {
+      font-size: 16px;
+  }
+
+  h1 {
+      font-size: 2em;
+  }
+
+  h2 {
+      font-size: 1.6em;
+  }
+
+  h3 {
+      font-size: 1.3em;
+  }
+
+  h4 {
+      font-size: 1.1em;
+  }
+
+  .landing {
+      padding-top: 15%;
+      padding-bottom: 15%;
+  }
+
+  .profile-image {
+      width: 140px;
+      height: 140px;
+  }
+
+  .landing h1 {
+      font-size: 2em;
+  }
+
+  .landing p {
+      font-size: 0.9em;
+  }
+
+  .section {
+      padding: 20px 10px;
+  }
+
+  .section h2 {
+      font-size: 1.6em;
+  }
+
+
+  .work-item .work-item-content {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .work-item .company-logo {
+      width: 70px;
+      height: 70px;
+      margin-bottom: 12px;
+  }
+
+  .summary-section {
+      align-items: center;
+      text-align: center;
+      padding: 10px;
+  }
+
+  .summary-section .profile-image {
+      margin-bottom: 15px;
+      margin-right: 0;
+      width: 120px;
+      height: 120px;
+  }
+
+  .summary-section .summary-text h2 {
+      font-size: 1.5em;
+  }
+
+  .summary-section .summary-text li {
+      font-size: 0.9em;
+  }
+
+  .icon-nav {
+      gap: 15px;
+      padding: 0 5%;
+  }
+
+  .nav-icon {
+      font-size: 1.8em;
+      width: 40px;
+      height: 40px;
+  }
+
+  .nav-text {
+      font-size: 0.8em;
+  }
+
+
+  /* Responsive adjustments for toggle buttons and scroll arrow */
+  .toggle-container {
+      top: 8px;
+      right: 8px;
+  }
+
+  .toggle-button,
+  .palette-button {
+      font-size: 1.4em;
+      margin-left: 4px;
+  }
+
+  #colorSwitcher {
+      right: 0;
+      top: 80%;
+      font-size: 0.75em;
+      padding: 8px;
+  }
+
+  .scroll-arrow-container {
+      right: 8px;
+  }
+
+  .scroll-arrow {
+      font-size: 1.4em;
+  }
+
+  /* Skills card adjustments for mobile */
+  .skills-categories-card-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .skill-category-card {
+      width: 90%;
+      max-width: none;
+      min-width: auto;
+      margin-bottom: 20px;
+  }
+}
+
+
+/* ========================================================== */
+/*                       Footer Styles                        */
+/* ========================================================== */
+/* Footer Styles remain the same */
+
+footer {
+  background: var(--primary-color);
+  color: #fff;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+footer p {
+  font-size: 0.85em;
+  margin-bottom: 8px;
+}
+
+footer a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+footer .contact-info {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+footer .contact-info a {
+  color: #fff;
+  font-size: 0.95em;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+  word-wrap: break-word;
+}
+
+
+/* ========================================================== */
+/*           Skills Section - Category Cards Styling          */
+/* ========================================================== */
+/* Skills Section - Category Cards Styling remain the same */
+
+#skills-content {
+  padding: 15px;
+}
+
+
+.skills-categories-card-container {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  padding-bottom: 15px;
+  gap: 20px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+
+/* Hide scrollbar for Webkit browsers (Chrome, Safari, Edge) */
+/* .skills-categories-card-container::-webkit-scrollbar {
+  display: none;
+} */
+
+
+.skill-category-card {
+  background-color: var(--section-background);
+  color: var(--text-color);
+  padding: 15px;
+  border-radius: 15px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  min-width: 250px;
+  flex: 1 1 300px;
+  width: 280px;
+  min-width: 280px;
+  max-width: 280px;
+  border: 1px solid var(--secondary-color);
+  box-sizing: border-box;
+  text-align: center;
+}
+
+
+.skill-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  background-color: var(--accent-color);
+  color: var(--text-color);
+  border-color: var(--primary-color);
+}
+
+
+.skill-category-card h3 {
+  font-size: 1.2em;
+  margin-bottom: 12px;
+  color: var(--primary-color);
+  border-bottom: 1px dashed var(--primary-color);
+  padding-bottom: 6px;
+}
+
+
+.skill-category-card ul.skill-list {
+  list-style-type: disc;
+  padding-left: 20px;
+  text-align: left;
+}
+
+
+.skill-category-card ul.skill-list li {
+  margin-bottom: 6px;
+  font-size: 0.95em;
+  line-height: 1.3;
+}
