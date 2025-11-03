@@ -1,12 +1,12 @@
 /* CSS Variables for Dynamic Color Palette */
 
 :root {
-  --primary-color: #0077b6;
-  --secondary-color: #90e0ef;
-  --background-color: #f9f9f9;
-  --section-background: #ffffff;
-  --text-color: #333333;
-  --accent-color: #e0f7fa;
+  --primary-color: #4CAF50;      /* A strong, classic green */
+  --secondary-color: #a6f5aa;    /* A lighter, softer green for accents */
+  --background-color: #1B262C;    /* A very dark blue-green, almost black */
+  --section-background: #F0F7F4;  /* A very light mint/off-white for content */
+  --text-color: #212121;          /* Dark charcoal for readability on light backgrounds */
+  --accent-color: #388E3C;        /* A darker, earthy green */
   --heading-font: 'Montserrat', sans-serif;
   --body-font: 'Lato', sans-serif;
 }
@@ -26,7 +26,7 @@
 body {
   font-family: var(--body-font);
   background-color: var(--background-color);
-  color: var(--text-color);
+  color: #F0F7F4; /* Light text for the dark body background */
   scroll-behavior: smooth;
   line-height: 1.6;
 }
@@ -43,8 +43,11 @@ h2,
 h3,
 h4 {
   font-family: var(--heading-font);
-  color: var(--primary-color);
+  color: var(--secondary-color);
   margin-bottom: 0.5em;
+}
+h2{
+  color:var(--primary-color)
 }
 
 h2 {
@@ -55,7 +58,7 @@ h2 {
 
 a {
   text-decoration: none;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   transition: color 0.3s ease;
 }
 
@@ -123,8 +126,8 @@ a:hover {
 
 
 #colorSwitcher label {
-  font-size: 0.75em;
-  color: var(--text-color);
+  font-size: 0.85em;
+  color: #333; /* Darker text for readability inside the switcher */
   display: block;
   margin-bottom: 2px;
 }
@@ -280,7 +283,7 @@ a:hover {
   height: auto;
   min-height: 90vh;
   padding: 20px;
-  background: linear-gradient(135deg, var(--primary-color) 40%, var(--secondary-color) 100%);
+  background: linear-gradient(300deg, rgb(41, 88, 37) 20%, rgba(19,217,111,1) 80%);
   color: white;
   text-align: center;
 }
@@ -343,7 +346,7 @@ a:hover {
 
 .summary-section .summary-text {
   flex: 1;
-  color: var(--text-color);
+  color: var(--text-color); /* Uses the new dark text color on the light section background */
 }
 
 
@@ -566,7 +569,7 @@ a:hover {
 .work-item .role {
   margin: 0.2em 0;
   font-size: 0.95em;
-  color: #666;
+  color: var(--text-color);
 }
 
 .work-item .responsibilities {
@@ -577,7 +580,7 @@ a:hover {
 .visit-website {
   display: inline-block;
   margin-top: 8px;
-  padding: 7px 12px;
+  padding: 8px 14px;
   background-color: var(--primary-color);
   color: #fff;
   border-radius: 4px;
@@ -588,6 +591,7 @@ a:hover {
 
 .visit-website:hover {
   background-color: var(--secondary-color);
+  color: #fff;
 }
 
 

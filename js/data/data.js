@@ -7,8 +7,7 @@ const siteData = {
             { href: "#education", title: "Education", iconClass: "fas fa-graduation-cap", text: "Education" },
             { href: "#work", title: "Work Experience", iconClass: "fas fa-briefcase", text: "Work" },
             { href: "#projects", title: "Projects", iconClass: "fas fa-folder-open", text: "Projects" },
-            { href: "#skills", title: "Skills", iconClass: "fas fa-laptop-code", text: "Skills" },
-            { href: "#certifications", title: "Certifications", iconClass: "fas fa-certificate", text: "Certifications" },
+            { href: "#skills", title: "Skills", iconClass: "fas fa-laptop-code", text: "Skills" }
         ]
     },
     educationSection: {

@@ -6,7 +6,7 @@ class ProjectsSection extends Section {
 
     renderTimelineItemContent(itemData) {
         return `
-            <h3><a href="${itemData.link}" target="_blank">${itemData.title} <i class="${itemData.iconClass}" style="font-size: 0.7em; vertical-align: baseline; color: var(--secondary-color);"></i></a></h3>
+            <h3><a href="${itemData.link}" target="_blank">${itemData.title} </a></h3>
             <p>${itemData.description}</p>
         `;
     }

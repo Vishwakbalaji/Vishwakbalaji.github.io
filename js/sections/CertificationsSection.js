@@ -7,7 +7,6 @@ class CertificationsSection extends Section {
     renderTimelineItemContent(itemData) {
         return `
             <h3>${itemData.certification}</h3>
-            <p>${itemData.organization} ${itemData.years}</p>
         `;
     }
 

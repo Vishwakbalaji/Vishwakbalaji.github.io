@@ -12,7 +12,7 @@ class WorkSection extends Section {
                 </div>
                 <div class="work-details">
                     <h3>
-                        <a href="${itemData.website}" target="_blank">${itemData.company} <i class="${itemData.companyIcon}" style="font-size: 0.7em; vertical-align: baseline; color: var(--secondary-color);"></i></a>
+                        <a href="${itemData.website}" target="_blank">${itemData.company} </a>
                     </h3>
                     <p class="location">${itemData.location}</p>
                     <p class="dates">${itemData.dates}</p>
